@@ -1,0 +1,143 @@
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s var(--ease-smooth), transform 0.75s var(--ease-smooth);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #7c5cfc 45%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass morphism ── */
+.glass {
+  background: rgba(13, 13, 24, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+.glass-light {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ── Glow ── */
+.glow        { box-shadow: var(--shadow-glow); }
+.glow-sm     { box-shadow: var(--shadow-glow-sm); }
+.glow-hover  { transition: box-shadow 0.3s ease; }
+.glow-hover:hover { box-shadow: var(--shadow-glow); }
+
+/* ── Tag ── */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(124, 92, 252, 0.28);
+  background: rgba(124, 92, 252, 0.08);
+  color: #a78bfa;
+  display: inline-block;
+}
+.tag-cyan {
+  border-color: rgba(34, 211, 238, 0.28);
+  background: rgba(34, 211, 238, 0.06);
+  color: #22d3ee;
+}
+.tag-work {
+  border-color: rgba(251, 191, 36, 0.28);
+  background: rgba(251, 191, 36, 0.06);
+  color: #fbbf24;
+}
+.tag-green {
+  border-color: rgba(52, 211, 153, 0.28);
+  background: rgba(52, 211, 153, 0.06);
+  color: #34d399;
+}
+
+/* ── Gradient button ── */
+.btn-gradient {
+  background: linear-gradient(135deg, #7c5cfc 0%, #22d3ee 100%);
+  position: relative;
+  overflow: hidden;
+}
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.btn-gradient:hover::after { opacity: 0.08; }
+
+/* ── Horizontal marquee (skills) ── */
+.marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Timeline dot pulse ── */
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 92, 252, 0.5); }
+  50%       { box-shadow: 0 0 0 8px rgba(124, 92, 252, 0); }
+}
+.dot-pulse { animation: dotPulse 2s ease-in-out infinite; }
+
+/* ── Cursor ── */
+.cursor-dot {
+  width: 10px; height: 10px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: transform 0.08s ease, width 0.2s, height 0.2s, background 0.2s;
+}
+.cursor-ring {
+  width: 38px; height: 38px;
+  border: 1.5px solid rgba(124, 92, 252, 0.45);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring),
+              border-color 0.3s ease;
+}
+
+/* ── Spotlight overlay ── */
+.spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(124, 92, 252, 0.04) 0%,
+    transparent 70%
+  );
+}
