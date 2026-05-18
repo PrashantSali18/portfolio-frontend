@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { fadeUp, staggerContainer, viewport } from '@/utils/motion'
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, viewport } from "@/utils/motion";
 
 export default function SectionTitle({ number, title, highlight, subtitle }) {
   return (
@@ -22,14 +22,17 @@ export default function SectionTitle({ number, title, highlight, subtitle }) {
         variants={fadeUp}
         className="font-display font-bold text-4xl md:text-5xl text-text leading-tight"
       >
-        {title}{' '}
+        {title}{" "}
         {highlight && <span className="gradient-text">{highlight}</span>}
       </motion.h2>
       {subtitle && (
-        <motion.p variants={fadeUp} className="font-body text-muted mt-4 max-w-lg">
+        <motion.p
+          variants={fadeUp}
+          className="font-body text-muted mt-4 max-w-lg"
+        >
           {subtitle}
         </motion.p>
       )}
     </motion.div>
-  )
+  );
 }

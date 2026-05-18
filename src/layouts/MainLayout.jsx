@@ -1,7 +1,7 @@
-import Navbar  from '@/components/layout/Navbar'
-import Footer  from '@/components/layout/Footer'
-import CursorGlow  from '@/components/effects/CursorGlow'
-import Spotlight   from '@/components/effects/Spotlight'
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import CursorGlow from "@/components/effects/CursorGlow";
+import Spotlight from "@/components/effects/Spotlight";
 
 /**
  * MainLayout wraps all pages with the persistent chrome:
@@ -18,5 +18,5 @@ export default function MainLayout({ children }) {
       <main>{children}</main>
       <Footer />
     </>
-  )
+  );
 }

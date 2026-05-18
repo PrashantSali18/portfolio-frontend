@@ -1,15 +1,39 @@
 /** Decorative radial gradient mesh orbs — used in hero + sections */
 export default function NoiseBackground({ orbs = [] }) {
   const defaults = [
-    { w: 600, h: 600, color: 'var(--color-accent)', top: '-100px', left: '-200px', opacity: 0.1 },
-    { w: 450, h: 450, color: 'var(--color-cyan)',   top: '40%',    right: '-80px', opacity: 0.08 },
-    { w: 300, h: 300, color: 'var(--color-violet)', bottom: '0',   left: '35%',    opacity: 0.08 },
-  ]
+    {
+      w: 600,
+      h: 600,
+      color: "var(--color-accent)",
+      top: "-100px",
+      left: "-200px",
+      opacity: 0.1,
+    },
+    {
+      w: 450,
+      h: 450,
+      color: "var(--color-cyan)",
+      top: "40%",
+      right: "-80px",
+      opacity: 0.08,
+    },
+    {
+      w: 300,
+      h: 300,
+      color: "var(--color-violet)",
+      bottom: "0",
+      left: "35%",
+      opacity: 0.08,
+    },
+  ];
 
-  const list = orbs.length ? orbs : defaults
+  const list = orbs.length ? orbs : defaults;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none"
+      aria-hidden
+    >
       {list.map((orb, i) => (
         <div
           key={i}
@@ -28,5 +52,5 @@ export default function NoiseBackground({ orbs = [] }) {
         />
       ))}
     </div>
-  )
+  );
 }

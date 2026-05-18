@@ -1,12 +1,12 @@
-import { useMagneticEffect } from '@/hooks/useMagneticEffect'
-import Button from './Button'
+import { useMagneticEffect } from "@/hooks/useMagneticEffect";
+import Button from "./Button";
 
 /**
  * A Button that magnetically follows the cursor on hover.
  * Accepts all Button props.
  */
 export default function MagneticButton({ strength = 0.3, ...props }) {
-  const { ref, onMouseMove, onMouseLeave } = useMagneticEffect(strength)
+  const { ref, onMouseMove, onMouseLeave } = useMagneticEffect(strength);
 
   return (
     <div
@@ -17,5 +17,5 @@ export default function MagneticButton({ strength = 0.3, ...props }) {
     >
       <Button {...props} />
     </div>
-  )
+  );
 }
