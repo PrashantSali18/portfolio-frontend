@@ -305,7 +305,7 @@ export default function Contact() {
       <div className="absolute left-1/4 bottom-0 w-[500px] h-[280px] bg-accent/[0.07] blur-[120px] rounded-full pointer-events-none" />
       <Container>
         <SectionTitle
-          number="05 / Contact"
+          number="05"
           title="Let's"
           highlight="Connect"
           subtitle="Open to full-stack and Java backend roles. Reach out for opportunities, collaborations, or just to say hi."
