@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion'
-import { staggerContainer, fadeUp, scaleIn, viewport } from '@/utils/motion'
-import skills from '@/data/skills'
-import SectionTitle from '@/components/ui/SectionTitle'
-import GlowCard from '@/components/ui/GlowCard'
-import SkillBadge from '@/components/ui/SkillBadge'
-import Container from '@/components/layout/Container'
+import { motion } from "framer-motion";
+import { staggerContainer, fadeUp, scaleIn, viewport } from "@/utils/motion";
+import skills from "@/data/skills";
+import SectionTitle from "@/components/ui/SectionTitle";
+import GlowCard from "@/components/ui/GlowCard";
+import SkillBadge from "@/components/ui/SkillBadge";
+import Container from "@/components/layout/Container";
 
 /* Duplicated flat list for the marquee strip */
-const allSkills = skills.flatMap((g) => g.items)
-const marqueeList = [...allSkills, ...allSkills]
+const allSkills = skills.flatMap((g) => g.items);
+const marqueeList = [...allSkills, ...allSkills];
 
 export default function Skills() {
   return (
@@ -17,7 +17,11 @@ export default function Skills() {
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-accent/[0.06] blur-[120px] rounded-full pointer-events-none" />
 
       <Container>
-        <SectionTitle number="02 / Skills" title="Technical" highlight="Arsenal" />
+        <SectionTitle
+          number="02 / Skills"
+          title="Technical"
+          highlight="Arsenal"
+        />
 
         {/* Category cards */}
         <motion.div
@@ -65,5 +69,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

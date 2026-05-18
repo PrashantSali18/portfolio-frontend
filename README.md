@@ -35,7 +35,9 @@ src/
 ## ✏️ How to Update Content
 
 ### 1. Add / Update a Project
+
 Open `src/data/projects.js` and add an object:
+
 ```js
 {
   id: 5,
@@ -51,16 +53,21 @@ Open `src/data/projects.js` and add an object:
   featured: true,
 }
 ```
+
 It appears automatically on the Projects section.
 
 ### 2. Add a New Skill
+
 Open `src/data/skills.js`, find the right category, and add the name:
+
 ```js
 { category: 'Frontend', items: ['React.js', 'YOUR NEW SKILL', ...] }
 ```
 
 ### 3. Add a New Job
+
 Open `src/data/experience.js` and add a new object at the top of the array (newest first):
+
 ```js
 {
   id: 3,
@@ -74,30 +81,37 @@ Open `src/data/experience.js` and add a new object at the top of the array (newe
   skills: ['React', 'Node.js'],
 }
 ```
+
 Set `current: false` on the previous job.
 
 ### 4. Change Your Tech Stack Label / Typewriter Roles
+
 Open `src/utils/constants.js` and edit `HERO_ROLES`.
 
 ### 5. Change Colors
+
 Open `src/styles/variables.css` and edit the CSS variables:
+
 ```css
---color-accent: #7c5cfc;   /* main purple */
---color-violet: #a78bfa;   /* soft purple */
---color-cyan:   #22d3ee;   /* cyan accent */
+--color-accent: #7c5cfc; /* main purple */
+--color-violet: #a78bfa; /* soft purple */
+--color-cyan: #22d3ee; /* cyan accent */
 ```
 
 ### 6. Add a New Section
+
 1. Create `src/components/sections/MySectionName.jsx`
 2. Import it in `src/App.jsx`
 3. Add `<MySectionName />` where you want it
 
 ### 7. Reorder Sections
+
 Edit the component order in `src/App.jsx` — that's it.
 
 ---
 
 ## 📄 Resume
+
 Place your PDF at `public/resume.pdf`. The navbar "Resume ↗" button links to it automatically.
 
 ---
@@ -115,6 +129,7 @@ git push -u origin main
 ```
 
 ### Connect a Custom Domain
+
 1. Buy `prashantsali.dev` from Namecheap (~₹1200/yr) or `prashantsali.in` (~₹700/yr)
 2. In Vercel → Project → Settings → Domains → Add domain
 3. Follow the DNS instructions — live in ~10 min
@@ -126,29 +141,34 @@ git push -u origin main
 1. Sign up free at https://emailjs.com
 2. Create a service + template
 3. Add to `.env.local`:
+
 ```
 VITE_EMAILJS_SERVICE_ID=service_xxx
 VITE_EMAILJS_TEMPLATE_ID=template_xxx
 VITE_EMAILJS_PUBLIC_KEY=xxx
 ```
+
 4. In `Contact.jsx`, replace the `mailto:` logic with:
+
 ```js
-import emailjs from '@emailjs/browser'
+import emailjs from "@emailjs/browser";
 emailjs.send(
   import.meta.env.VITE_EMAILJS_SERVICE_ID,
   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
   { from_name: form.name, from_email: form.email, message: form.message },
-  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-)
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+);
 ```
+
 Then `npm install @emailjs/browser`.
 
 ---
 
 ## 🛠️ Tech Stack
+
 - React 18 + Vite 5
 - Tailwind CSS 3
 - Framer Motion 11
 - react-icons 5
 - clsx (className utility)
-"# portfolio-frontend" 
+  "# portfolio-frontend"

@@ -1,23 +1,22 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { staggerContainer, fadeUp, viewport } from '@/utils/motion'
-import projects from '@/data/projects'
-import SectionTitle from '@/components/ui/SectionTitle'
-import ProjectCard from '@/components/ui/ProjectCard'
-import Container from '@/components/layout/Container'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { staggerContainer, fadeUp, viewport } from "@/utils/motion";
+import projects from "@/data/projects";
+import SectionTitle from "@/components/ui/SectionTitle";
+import ProjectCard from "@/components/ui/ProjectCard";
+import Container from "@/components/layout/Container";
 
 const FILTERS = [
-  { label: 'All',      value: 'all'      },
-  { label: 'Personal', value: 'personal' },
-  { label: 'Work',     value: 'work'     },
-]
+  { label: "All", value: "all" },
+  { label: "Personal", value: "personal" },
+  { label: "Work", value: "work" },
+];
 
 export default function Projects() {
-  const [filter, setFilter] = useState('all')
+  const [filter, setFilter] = useState("all");
 
-  const displayed = filter === 'all'
-    ? projects
-    : projects.filter((p) => p.type === filter)
+  const displayed =
+    filter === "all" ? projects : projects.filter((p) => p.type === filter);
 
   return (
     <section id="projects" className="relative overflow-hidden">
@@ -27,7 +26,11 @@ export default function Projects() {
       <Container>
         {/* Title + filter row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-          <SectionTitle number="04 / Projects" title="What I've" highlight="Built" />
+          <SectionTitle
+            number="04 / Projects"
+            title="What I've"
+            highlight="Built"
+          />
 
           <motion.div
             variants={staggerContainer(0.06)}
@@ -43,8 +46,8 @@ export default function Projects() {
                 onClick={() => setFilter(f.value)}
                 className={`font-mono text-[11px] px-4 py-1.5 rounded-full border transition-all duration-200 capitalize ${
                   filter === f.value
-                    ? 'border-accent bg-accent/10 text-accent'
-                    : 'border-border text-muted hover:border-accent/40 hover:text-text'
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-border text-muted hover:border-accent/40 hover:text-text"
                 }`}
               >
                 {f.label}
@@ -70,5 +73,5 @@ export default function Projects() {
         </AnimatePresence>
       </Container>
     </section>
-  )
+  );
 }

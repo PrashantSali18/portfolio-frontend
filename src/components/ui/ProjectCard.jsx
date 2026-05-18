@@ -1,16 +1,22 @@
-import { motion } from 'framer-motion'
-import { FiGithub, FiExternalLink, FiLock } from 'react-icons/fi'
-import { scaleIn, viewport } from '@/utils/motion'
-import GlowCard from './GlowCard'
+import { motion } from "framer-motion";
+import { FiGithub, FiExternalLink, FiLock } from "react-icons/fi";
+import { scaleIn, viewport } from "@/utils/motion";
+import GlowCard from "./GlowCard";
 
 const statusMap = {
-  live:        { label: 'Live',        color: 'text-green-400 bg-green-400/10 border-green-400/20' },
-  'in-progress':{ label: 'In Progress', color: 'text-amber-400 bg-amber-400/10 border-amber-400/20' },
-  private:     { label: 'Private',     color: 'text-muted bg-white/5 border-white/10'              },
-}
+  live: {
+    label: "Live",
+    color: "text-green-400 bg-green-400/10 border-green-400/20",
+  },
+  "in-progress": {
+    label: "In Progress",
+    color: "text-amber-400 bg-amber-400/10 border-amber-400/20",
+  },
+  private: { label: "Private", color: "text-muted bg-white/5 border-white/10" },
+};
 
 export default function ProjectCard({ project, index = 0 }) {
-  const status = statusMap[project.status] ?? statusMap.private
+  const status = statusMap[project.status] ?? statusMap.private;
 
   return (
     <motion.div
@@ -30,12 +36,15 @@ export default function ProjectCard({ project, index = 0 }) {
                 {project.name}
               </h3>
               {/* type badge */}
-              {project.type === 'work'
-                ? <span className="tag tag-work text-[10px]">Company</span>
-                : <span className="tag text-[10px]">Personal</span>
-              }
+              {project.type === "work" ? (
+                <span className="tag tag-work text-[10px]">Company</span>
+              ) : (
+                <span className="tag text-[10px]">Personal</span>
+              )}
             </div>
-            <p className="font-mono text-[11px] text-muted">{project.tagline}</p>
+            <p className="font-mono text-[11px] text-muted">
+              {project.tagline}
+            </p>
           </div>
 
           {/* ── Action buttons ── */}
@@ -63,7 +72,10 @@ export default function ProjectCard({ project, index = 0 }) {
               </a>
             ) : null}
             {!project.liveUrl && !project.githubUrl && (
-              <span className="w-8 h-8 rounded-lg glass-light flex items-center justify-center text-muted/50" title="Private">
+              <span
+                className="w-8 h-8 rounded-lg glass-light flex items-center justify-center text-muted/50"
+                title="Private"
+              >
                 <FiLock size={12} />
               </span>
             )}
@@ -94,14 +106,18 @@ export default function ProjectCard({ project, index = 0 }) {
         <div className="flex items-end justify-between gap-3">
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((t) => (
-              <span key={t} className="tag text-[10px]">{t}</span>
+              <span key={t} className="tag text-[10px]">
+                {t}
+              </span>
             ))}
           </div>
-          <span className={`font-mono text-[10px] px-2.5 py-1 rounded-full border flex-shrink-0 ${status.color}`}>
+          <span
+            className={`font-mono text-[10px] px-2.5 py-1 rounded-full border flex-shrink-0 ${status.color}`}
+          >
             {status.label}
           </span>
         </div>
       </GlowCard>
     </motion.div>
-  )
+  );
 }

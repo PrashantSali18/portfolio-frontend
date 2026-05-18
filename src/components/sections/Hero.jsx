@@ -1,38 +1,49 @@
-import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { FiGithub, FiLinkedin, FiArrowDown } from 'react-icons/fi'
-import { staggerContainer, fadeUp, viewport } from '@/utils/motion'
-import { HERO_ROLES, SITE, LINKS } from '@/utils/constants'
-import MagneticButton from '@/components/ui/MagneticButton'
-import NoiseBackground from '@/components/effects/NoiseBackground'
-import GridOverlay from '@/components/effects/GridOverlay'
-import Container from '@/components/layout/Container'
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiArrowDown } from "react-icons/fi";
+import { staggerContainer, fadeUp, viewport } from "@/utils/motion";
+import { HERO_ROLES, SITE, LINKS } from "@/utils/constants";
+import MagneticButton from "@/components/ui/MagneticButton";
+import NoiseBackground from "@/components/effects/NoiseBackground";
+import GridOverlay from "@/components/effects/GridOverlay";
+import Container from "@/components/layout/Container";
 
 export default function Hero() {
-  const roleRef = useRef(null)
+  const roleRef = useRef(null);
 
   /* Typewriter effect */
   useEffect(() => {
-    let i = 0, c = 0, deleting = false, t
+    let i = 0,
+      c = 0,
+      deleting = false,
+      t;
 
     const tick = () => {
-      const word = HERO_ROLES[i % HERO_ROLES.length]
-      if (!roleRef.current) return
-      roleRef.current.textContent = word.slice(0, c + (deleting ? 0 : 1))
+      const word = HERO_ROLES[i % HERO_ROLES.length];
+      if (!roleRef.current) return;
+      roleRef.current.textContent = word.slice(0, c + (deleting ? 0 : 1));
 
       if (!deleting) {
-        c++
-        if (c === word.length) { deleting = true; t = setTimeout(tick, 1800); return }
+        c++;
+        if (c === word.length) {
+          deleting = true;
+          t = setTimeout(tick, 1800);
+          return;
+        }
       } else {
-        c--
-        if (c < 0) { c = 0; deleting = false; i++ }
+        c--;
+        if (c < 0) {
+          c = 0;
+          deleting = false;
+          i++;
+        }
       }
-      t = setTimeout(tick, deleting ? 48 : 88)
-    }
+      t = setTimeout(tick, deleting ? 48 : 88);
+    };
 
-    t = setTimeout(tick, 900)
-    return () => clearTimeout(t)
-  }, [])
+    t = setTimeout(tick, 900);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <section
@@ -61,14 +72,17 @@ export default function Hero() {
           <motion.h1
             variants={fadeUp}
             className="font-display font-extrabold leading-none tracking-tight mb-5"
-            style={{ fontSize: 'clamp(3.2rem, 11vw, 8rem)' }}
+            style={{ fontSize: "clamp(3.2rem, 11vw, 8rem)" }}
           >
             <span className="text-text">Prashant </span>
             <span className="gradient-text">Sali</span>
           </motion.h1>
 
           {/* Typewriter */}
-          <motion.div variants={fadeUp} className="h-10 flex items-center justify-center mb-6">
+          <motion.div
+            variants={fadeUp}
+            className="h-10 flex items-center justify-center mb-6"
+          >
             <span className="font-display text-xl md:text-2xl text-muted">
               <span ref={roleRef} className="text-violet" />
               <span className="text-accent animate-pulse">|</span>
@@ -80,8 +94,8 @@ export default function Hero() {
             variants={fadeUp}
             className="font-body text-muted text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
           >
-            Building production-grade web apps end-to-end — responsive React frontends
-            to secure Java & Node.js backends. Based in Pune, India.
+            Building production-grade web apps end-to-end — responsive React
+            frontends to secure Java & Node.js backends. Based in Pune, India.
           </motion.p>
 
           {/* CTA buttons */}
@@ -98,16 +112,19 @@ export default function Hero() {
           </motion.div>
 
           {/* Socials */}
-          <motion.div variants={fadeUp} className="flex items-center justify-center gap-6">
+          <motion.div
+            variants={fadeUp}
+            className="flex items-center justify-center gap-6"
+          >
             {[
-              { icon: FiGithub,   href: LINKS.github,   label: 'GitHub'   },
-              { icon: FiLinkedin, href: LINKS.linkedin,  label: 'LinkedIn' },
-              { href: `mailto:${SITE.email}`, label: 'Email', text: true  },
+              { icon: FiGithub, href: LINKS.github, label: "GitHub" },
+              { icon: FiLinkedin, href: LINKS.linkedin, label: "LinkedIn" },
+              { href: `mailto:${SITE.email}`, label: "Email", text: true },
             ].map((s) => (
               <a
                 key={s.label}
                 href={s.href}
-                target={s.text ? undefined : '_blank'}
+                target={s.text ? undefined : "_blank"}
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 font-mono text-[11px] text-muted hover:text-violet transition-colors duration-200 uppercase tracking-wider"
               >
@@ -129,5 +146,5 @@ export default function Hero() {
         </motion.div>
       </Container>
     </section>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
-import { staggerContainer, fadeUp, viewport } from '@/utils/motion'
-import { SITE, LINKS } from '@/utils/constants'
-import MagneticButton from '@/components/ui/MagneticButton'
-import Container from '@/components/layout/Container'
+import { motion } from "framer-motion";
+import { staggerContainer, fadeUp, viewport } from "@/utils/motion";
+import { SITE, LINKS } from "@/utils/constants";
+import MagneticButton from "@/components/ui/MagneticButton";
+import Container from "@/components/layout/Container";
 
 export default function CTA() {
   return (
@@ -20,7 +20,10 @@ export default function CTA() {
           viewport={viewport}
           className="text-center"
         >
-          <motion.p variants={fadeUp} className="font-mono text-xs text-accent tracking-widest uppercase mb-5">
+          <motion.p
+            variants={fadeUp}
+            className="font-mono text-xs text-accent tracking-widest uppercase mb-5"
+          >
             Available for Work
           </motion.p>
 
@@ -33,21 +36,36 @@ export default function CTA() {
             <span className="gradient-text">Let's build it together.</span>
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="font-body text-muted max-w-md mx-auto mb-10 leading-relaxed">
+          <motion.p
+            variants={fadeUp}
+            className="font-body text-muted max-w-md mx-auto mb-10 leading-relaxed"
+          >
             I'm actively looking for full-stack and Java backend opportunities.
             Whether it's a product, startup, or enterprise — let's talk.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <MagneticButton href={`mailto:${SITE.email}`} variant="primary" size="lg">
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <MagneticButton
+              href={`mailto:${SITE.email}`}
+              variant="primary"
+              size="lg"
+            >
               Email Me →
             </MagneticButton>
-            <MagneticButton href={LINKS.linkedin} external variant="outline" size="lg">
+            <MagneticButton
+              href={LINKS.linkedin}
+              external
+              variant="outline"
+              size="lg"
+            >
               Connect on LinkedIn
             </MagneticButton>
           </motion.div>
         </motion.div>
       </Container>
     </section>
-  )
+  );
 }
