@@ -10,7 +10,7 @@ export const SITE = {
 export const LINKS = {
   github: "https://github.com/PrashantSali18",
   linkedin: "https://linkedin.com/in/prashsali18",
-  devconnect: "https://https://devconnect-frontend-h01h.onrender.com/",
+  devconnect: "https://devconnect-frontend-h01h.onrender.com",
   capshure: "https://capshure.leapot.in/",
   leapot: "https://leapot.in/",
 };
