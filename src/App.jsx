@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import MainLayout from "@/layouts/MainLayout";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -29,6 +30,7 @@ export default function App() {
       <Projects />
       <Contact />
       <CTA />
+      <SpeedInsights />
     </MainLayout>
   );
 }
